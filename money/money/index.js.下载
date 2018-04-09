@@ -1,0 +1,224 @@
+//登录
+var loginInit = {
+    init: function(){
+        'use strict';
+        var self =this;
+        self.Field = {
+            'userName': '',
+            'mobile': '',
+            'imgCode': '',
+            'isLoad': 'N',
+            '$btnNext0': $('#btnNext0'),
+            '$mobile': $('#phoneNum'),
+            '$userName': $('#userName'),
+            '$imgCode': $('#imgCode')
+        };
+        self.saveUrl();
+        self.bind();      
+    },
+    saveUrl: function(){
+        var param = location.href;
+    	$.ajax({
+            url: '/do/smsurlparam/add.do',
+            type: 'post',
+            dataType: 'json',
+            data: {param:param,
+            	type:2},
+            success: function(response){
+            	
+            }
+        });
+	},
+    bind: function(){
+        'use strict';
+        var self =this;
+        self.Field.$btnNext0.on('click', function(){
+            if(self.Field.isLoad =='N' &&self.valid()){
+                self.Field.isLoad = 'Y';
+                self.sendData();
+            }
+        });
+        $('#pigCode').bind('click', function(){
+            self.isAttack();
+        });
+
+    },
+    isAttack: function(){
+        'use strict';
+        $.ajax({
+            type: 'POST',
+            url: '/refreshcode.do',
+            dataType: 'json',
+            success: function(response) {
+                if(response.attack_check_code){
+                    $('#pigCode').attr('src', 'data:image/gif;base64,' + response.attack_check_code);
+                }
+            }
+        });
+    }, 
+    valid: function(){
+        'use strict';
+        var self =this;
+        self.Field['userName'] = $.trim(self.Field['$userName'].val());//姓名
+        self.Field['mobile'] = $.trim(self.Field['$mobile'].val());//手机号
+        self.Field['imgCode'] = $.trim(self.Field['$imgCode'].val());//验证码
+        if(self.Field['userName'] == '请输入您的姓名'){// 姓名校验
+            alert('请输入姓名');
+            return false;
+        }else if(!self.Field['userName'].match(/^[\u4e00-\u9fa5]{2,8}$/g)){
+            alert('姓名为2-8个汉字');
+            return false;
+        }
+        // 手机号码校验   
+        if(self.Field['mobile'] == '请输入您的手机号码'){
+            alert('请输入手机号码');
+            return false;
+        }else if(!self.Field['mobile'].match(/^1(3|4|5|7|8)\d{9}$/)){
+            alert('请正确填写手机号码');
+            return false;
+        }else{
+            var value = self.Field['mobile'],
+                // repeat = 0, 
+                seque = 0;
+            for ( var i = 1; i < value.length; i++) {
+                // if (value.charAt(i) == value.charAt(i - 1)) {
+                //     repeat++;
+                //     if (repeat >= 5) {
+                //         alert('请正确填写手机号码');
+                //         return false;
+                //     }
+                // } else {
+                //     repeat = 1;
+                // }
+                if (value.charAt(i) - value.charAt(i - 1) == '1') {
+                    seque++;
+                    if (seque >= 6) {
+                        alert('请正确填写手机号码');
+                        return false;
+                    }
+                } else {
+                    seque = 1;
+                }
+            }
+        }
+        // 验证码校验
+        if($('#judgCode').is(':visible')){
+            if (!self.Field['imgCode']){
+                alert('请输入验证码');
+                return false;
+            }
+            else if(!self.Field['imgCode'].match(/^[A-Za-z0-9]{4}$/)){
+                alert('验证码输入不正确');
+                return false;
+            }
+        }
+        return true;
+    },
+    //获取innerMedia
+    getInnerMedia: function() {
+        'use strict';
+        var innerMedia = getCookie('inner_media');
+        if(innerMedia){
+            innerMedia = decodeURI(innerMedia);
+        }
+        // 若cookie中为空，则默认为 'pingan'
+        if (!innerMedia) {
+            innerMedia = 'pingan';
+        }
+        return innerMedia;
+    },
+    sendData: function(){
+        'use strict';
+        var self = this;
+        var encrypt = new JSEncrypt();
+        encrypt.setPublicKey('MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCJ9s1qlOyv9qpuaTqauW6fUftzE50rVk3yVPZwv1aO1Ch/XSEz76xCwkyvqpaqceRXrPpdBmO5+ruJ+I8osOHo7L5GWEOcMOO+8izp9hXKBBrmRMD4Egpn00k9DhVIEKp/vyddZPS/doxB8onhN6poTJDLdFLFVEicMf52caN9GQIDAQAB');
+        var verName = encrypt.encrypt(self.Field['userName']);
+        var verMobile = encrypt.encrypt(self.Field['mobile']);
+        var pram = {
+            name: verName, //姓名
+            mobile: verMobile, //手机号
+            // mediaSourceCode: 'PA-07-01',
+            mediaSourceCode: getMediaSouce(),
+            campaignCode: 'XX_CAMP_CSJYQDA',
+            custSrc: '09', 
+            openId: getUrlParam('openId'),
+            innerMedia: self.getInnerMedia(), 
+            lpPag: getLpPage(),
+            formCode: '001',
+            pageType: '3', 
+            cityCode: getUrlParam('cityCode')
+        };
+        var $judgCode = $('#judgCode');
+        if($judgCode.is(':visible')){
+            pram.attack_check_code = self.Field['imgCode'];
+        }
+        $.ajax({
+            type: 'post',
+            url: '/uni/initApply.do',
+            data: pram,
+            dataType: 'json',
+            success: function(res){
+                if(res.isAttack && res.isAttack == 1 && res.errorCode){
+                    if (res.errorCode == '004') {
+                        alert('请输入正确的验证码');
+                        self.isAttack();
+                        self.Field.isLoad = 'N';
+                    }else{
+                        $('#pigCode').attr('src', 'data:image/gif;base64,' + res.attack_check_code);
+                        $judgCode.show();
+                        self.Field.isLoad = 'N';
+                    }
+                }else{
+                    var code = res.retCode;
+                    var patt = new RegExp('x', 'i');
+                    var isError = patt.test(code);
+                    if(isError){
+                        if (code == 'X013') {
+                            alert('名单已申请，请勿重复提交');  
+                        }else{
+                            alert('系统异常，请稍后再试');
+                        }
+                        self.Field.isLoad ='N';
+                    }else{
+                        if(code == '001') {//各产品页
+                            var indexCode = res.result.businessType;
+                            var indexUni = res.result.uniqueId;
+                            var money = parseInt(res.result.preAmt); 
+                            if(indexCode == '1' || indexCode == '2' || indexCode === 'UNI-1' || indexCode === 'UNI-2' || indexCode === 'STP' || indexCode === '1,2'){//CHESHOU
+                                var gbdType = res.result.gbdType;
+                                window.location.href = ['/product/oto/website/O2Opc/result3_uni.html', '?uniqueId=', indexUni, '&money=', money, '&gbdType=', gbdType].join('');
+                            }else if(indexCode == '4'){
+                                window.location.href = ['/daikuan/yqdai/2.0/index.html?uniqueId=', indexUni].join('');
+                            }
+                        }else if(code == '002' || code == '003'){// 筛选页
+                            if (res.flowId) {
+                                window.location.href = ['step1.html', '?flowId=', res.flowId].join('');
+                            }else{
+                                window.location.href = 'step1.html';
+                            }
+                        }else if(code == '101'){// 流程查询页
+                            window.location.href = '/product/oto/website/O2Opc/to-mobile-jdcx.html';
+                        }else if(code == '901'){// APP 下载页
+                            window.location.href = '/client/iloan/marketStep1.html?utm_source=phmk-ZHPP&utm_medium=mkt&utm_campaign=mkt&utm_content=puhui&WT.mc_id=wap-cxx-zhpp-puhui-ilone-153';
+                        }else if(code == '902' || code == '004'){// 坐席跟进页
+                            window.location.href = 'success.html';
+                        }else if(code == '903'){// 错误页
+                            alert('您暂不符合条件，感谢关注', '/');
+                            self.Field.isLoad = 'N';
+                            $('#loading').hide();
+                        }else if(code == '999'){// 错误页
+                            alert('系统错误');
+                            self.Field.isLoad = 'N';
+                        }
+                    }
+                }
+            },
+            
+            error: function(jqXHR, textStatus, errorThrown){
+                self.Field.isLoad = 'N';
+                console.log(textStatus);
+            }
+        });
+    }
+};
+loginInit.init();
