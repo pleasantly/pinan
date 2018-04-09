@@ -117,7 +117,7 @@ textarea
 /*----------------------------------------logo----------------------------------------*/
 .pa_header
 {
-    height: 100px;
+    height: 89px;
     width: 100%;
     position: relative;
 }
@@ -126,16 +126,16 @@ textarea
     width: 1000px;
     margin: 0 auto;
     position: relative;
-	/*background:url(../images/bgimg-2.png) no-repeat right 0;*/
-    background: #bebebe;
+	/*background:url(wendo.png) no-repeat right -15px;*/
+    /*background: #bebebe;*/
 }
 .pa_header .header a
 {
     display: block;
 }
 .pa_header .header a.header-logo-xrdk{
-    /*background:url(../images/logo.png) no-repeat; */
-    width:395px; height:100px;}
+    background:url(logo.png) no-repeat;
+    width:495px; height:89px;}
 .pa_header .header .header_li_logo01
 {
     /*background: url(../images/head_logo01.jpg) no-repeat scroll 0px 0px #FFF;*/
@@ -300,12 +300,12 @@ textarea
 .pa_footer .footer .footer_logo
 {
     display: block;
-    /*background: url(../images/logo-2.png) no-repeat scroll 0px 0px #FFF;*/
-    width: 195px;
-    height: 18px;
+    background: url(logo.png) ;
+    background-size: 100% 100%;
+    width: 237px;
+    height: 70px;
     /*float: left;*/
-    margin: 25px auto;
-    margin-bottom: 10px
+    margin: 0px auto;
 }
 .pa_footer .footer .copyright
 {
@@ -411,51 +411,61 @@ textarea
 /*----------------------------------------footer----------------------------------------*/
 
 .yib{
-    line-height: 65px;
+    width: 300px;
+    line-height: 28px;
     display: flex;
-    font-size: 25px;
-    color: #FFFFFF;
-    background: #bebebe;
+    font-size: 16px;
+    /*color: #FFFFFF;*/
+    position: relative;
+    bottom: 56px;
+    left: 700px;
 }
 .moe1{
     display: flex;
     justify-content: center;
-    flex: 1;
     align-items: center;
     cursor: pointer;
+    flex: 1;
+    border-bottom: 1px solid #FFFFFF;
+}
+.moe1:hover,.moe2:hover{
+    border-bottom: 1px solid #ed5006;
 }
 .moe2{
     display: flex;
     justify-content: center;
-    flex: 1;
     align-items: center;
     cursor: pointer;
+    z-index: 1580;
+    flex: 1;
+    border-bottom: 1px solid #FFFFFF;
 }
 
 .xiah{
-    width: 333px;
-    height: 150px;
-    background: #828282;
+    width: 200px;
+    height: 125px;
+    background: rgba(255, 255, 255, 0.8);
     position: absolute;
-    left: 333px;
+    left: 58px;
     z-index: 1500;
-
-    color: #FFFFFF;
+    color: #000000;
     display: none;
+    border: 1px solid #b1b1b1;
+    border-radius:5px;
 }
 .wuio{
     display: flex;
 }
 .xiah p{
     line-height: 25px;
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: 1px solid #828282;
     font-size: 14px;
 }
 .yian{
     flex: 1;
     text-align: center;
-    border-right: 1px solid #FFFFFF;
-    height: 150px;
+    border-right: 1px solid #828282;
+    height: 125px;
     cursor: pointer;
 }
 .erb{
