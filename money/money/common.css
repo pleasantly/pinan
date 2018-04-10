@@ -442,38 +442,54 @@ textarea
 }
 
 .xiah{
-    width: 200px;
-    height: 125px;
-    background: rgba(255, 255, 255, 0.8);
+    width: 156px;
+    height: 162px;
+    background: #FFFFFF;
     position: absolute;
-    left: 58px;
+    left: 68px;
     z-index: 1500;
     color: #000000;
     display: none;
-    border: 1px solid #b1b1b1;
-    border-radius:5px;
+    border: 1px solid #e2e2e2;
+    border-radius:14px;
 }
 .wuio{
     display: flex;
 }
 .xiah p{
     line-height: 25px;
-    border-bottom: 1px solid #828282;
+    border-bottom: 1px solid #ededed;
     font-size: 14px;
+    color: #777777;
 }
 .yian{
     flex: 1;
     text-align: center;
-    border-right: 1px solid #828282;
-    height: 125px;
+    border-right: 1px solid #ededed;
+    height: 162px;
     cursor: pointer;
+
 }
 .erb{
     flex: 1;
     text-align: center;
     cursor: pointer;
+
 }
 .paso{
-    font-size: 16px;
-    margin-top: 30%;
+    font-size: 14px;
+    height: 133px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition-delay: 0.1s;
+    transition-duration:.2s;
+    color: #b0b0b0;
+    padding: 2px;
+
+}
+.paso:hover{
+    background: rgba(237, 80, 6, 0.49);
+    color: #FFFFFF;
 }
