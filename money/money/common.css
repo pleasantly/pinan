@@ -337,7 +337,7 @@ textarea
 {
     font-family: "微软雅黑";
     line-height: 32px;
-    margin-left: 15px;
+    /*margin-left: 15px;*/
 }
 .pa_footer .footer .copyright i
 {
@@ -345,7 +345,7 @@ textarea
     width: 26px;
     height: 26px;
     display: inline-block;
-    /*background: url(../images/20140625_sch.png) no-repeat;*/
+    /*background: url(bap.png) no-repeat;*/
 }
 .pa_footer .footer .copyright .dossier1
 {
@@ -492,4 +492,52 @@ textarea
 .paso:hover{
     background: rgba(237, 80, 6, 0.49);
     color: #FFFFFF;
+}
+.kash{
+    margin-top: 50px;
+    width: 1004px;
+    height: 400px;
+    background: url(banner7.jpg) no-repeat center;
+    background-size: cover;
+    /*background-position: 0 20%;*/
+    position: relative;
+    color: #FFFFFF;
+}
+.bis{
+    background: #ed7039;
+    width: 202px;
+    height: 155px;
+    position: absolute;
+    top: -12px;
+    padding: 25px;
+}
+.bis-1{
+    background: #ed7039;
+    width: 202px;
+    height: 155px;
+    position: absolute;
+    bottom: -12px;
+    left: 252px;
+    padding: 25px;
+}
+.bis-2{
+    background: #ed7039;
+    width: 202px;
+    height: 155px;
+    position: absolute;
+    top: -12px;
+    left: 504px;
+    padding: 25px;
+}
+.bis-3{
+    background: #ed7039;
+    width: 201px;
+    height: 155px;
+    position: absolute;
+    bottom: -12px;
+    left: 755px;
+    padding: 25px;
+}
+.top-fiw{
+    font-size: 40px;
 }

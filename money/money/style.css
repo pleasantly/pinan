@@ -17,9 +17,10 @@ input[type="text"]{font-family:"Microsoft YaHei"; background-color:transparent; 
 /* public */
 .banner-bg{/*background:url(../images/banner-bg.jpg) repeat-x 0 0;*/  width:100%;}
 .banner-img{
-    background:url(https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center;
-    /*background-size: 100% 100%;*/
+    background:url(banner8.jpg) no-repeat center;
+    background-size: cover;
     width:100%;
+    /*background-position: 0 18%;*/
 }
 .banner-img3{
     /*background:url(../images/banner1.jpg) no-repeat center top;*/
