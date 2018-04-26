@@ -387,7 +387,8 @@ textarea
 }
 .pa-foot-ad{
     /*background:url(../images/aproImg9.jpg) no-repeat center top #fff;*/
-    width:100%; height:176px;}
+    width:100%; height:130px;padding: 0.1px;
+}
 #returnhome
 {
     /*background: url(../images/back.png) no-repeat;*/
@@ -540,4 +541,78 @@ textarea
 }
 .top-fiw{
     font-size: 40px;
+}
+.rm{
+    display: flex;
+}
+.pic-con1{
+    padding-top: 15px;
+}
+.rm_cd{
+    width: 339px;
+    height: 354px;
+    border-right: 1px solid #e8e8e8;
+    position: relative;
+}
+.rm_tp{
+    background: url(rm1.png);
+}
+.rm_tp1{
+    background: url(rm2_gai.png);
+}
+.rm_tp2{background: url(rm3_gai.png)}
+.anbi{
+    font-size: 32px;
+    position: absolute;
+    top: 38px;
+    left: 75px;
+}
+.anbi span{
+    font-weight: bold;
+    color: #fd5403;
+}
+.anbi-bos{
+    font-size: 18px;
+    position: absolute;
+    top: 89px;
+    left: 73px;
+}
+.anbi-bay{
+    font-size: 18px;
+    position: absolute;
+    top: 89px;
+    left: 129px;
+}
+.anbi-bao{
+    font-size: 18px;
+    position: absolute;
+    top: 89px;
+    left: 117px;
+}
+.ddi{
+    width: 52px;
+    height: 50px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    position: absolute;
+    top: 161px;
+    left: 30px;
+    color: #FFFFFF;
+}
+.tisa{
+    margin-top: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.xian{
+    height: 1px;
+    width: 120px;
+    background: #fd5403;
+}
+.pasdd{
+    font-size: 24px;
+    color: #fd5403;
+    margin: 0 12px;
 }
