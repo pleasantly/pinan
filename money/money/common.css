@@ -430,7 +430,8 @@ textarea
     border-bottom: 1px solid #FFFFFF;
 }
 .moe1:hover,.moe2:hover{
-    border-bottom: 1px solid #ed5006;
+    /*border-bottom: 1px solid #ed5006;*/
+    color: #ed5006;
 }
 .moe2{
     display: flex;
