@@ -11,8 +11,9 @@
   list-style: none;
   overflow: hidden;
   width: 100%;
-  background: #fff;
+  /*background: #fff;*/
   top: 0;
+  position: fixed;
 }
 .swiper-container-ul-li{
   width: 50%;
@@ -28,13 +29,15 @@
 .content{
   width: 100%;
   overflow: hidden;
+  margin-top: 54px;
 }
 .left{
-  top: 41px;
+  top: 55px;
   float: left;
   width: 25%;
   height: 100%;
   background: #eee;
+  position: fixed;
 }
 .left ul{
   list-style: none;
@@ -51,6 +54,8 @@
   float: left;
   width: 75%;
   height: 100%;
+  overflow: scroll;
+  margin-left: 94px;
 }
 .right ul{
   list-style: none;
@@ -98,3 +103,32 @@
   background: #eee;
 }
 img{width: 100%}
+
+.soi{
+  width: 100%;
+  padding: 10px 0;
+  background: #e5e5e5;
+}.sos{
+   width: 70%;
+   height: 32px;
+   margin: 0px 16px;
+   text-align: center;
+   border: 0px;outline:none;cursor: pointer
+ }
+.soo{
+  width: 92%;
+  height: 35px;
+  background: #FFFFFF;
+  border-radius:5px;
+  margin: 0 auto;
+}
+.sos-img{
+  /*border: 1px solid #828282;*/
+  width: 27px;
+  height: 27px;
+  float: left;
+  margin: 4px 6px;
+}
+.swiper-container{
+  height: 100%;
+}
