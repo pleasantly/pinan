@@ -1,0 +1,456 @@
+body{
+    overflow-x: hidden;
+}
+nav {
+    height: 56px;
+    /*background-color: rgba(192,192,192,0.5);*/
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.home-bg .title{
+    margin-top: 30vh;
+    padding: 0 145px;
+}
+
+.home-bg h2{
+    /*position: absolute;*/
+    color: #f05b48 !important;
+    letter-spacing: 5px;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600 !important;
+    z-index: 3;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+    margin-bottom: 35px;
+}
+.home-bg h1{
+    /*position: absolute;*/
+    font-size: 56px;
+    line-height: 64px;
+    font-weight: 700;
+    z-index: 3;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+    margin-bottom: 25px;
+}
+.home-bg h3{
+    /*position: absolute;*/
+    letter-spacing: 5px;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 1.4;
+    z-index: 3;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+@media (max-width: 768px){
+    .home-bg h2{
+        /*position: absolute;*/
+        letter-spacing: 5px;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 26px;
+        z-index: 3;
+        -webkit-transition: all 0.8s;
+        -moz-transition: all 0.8s;
+        -ms-transition: all 0.8s;
+        -o-transition: all 0.8s;
+        transition: all 0.8s;
+    }
+
+    .home-bg h1{
+        font-size: 32px;
+        line-height: 40px;
+
+        -webkit-transition: all 0.8s;
+        -moz-transition: all 0.8s;
+        -ms-transition: all 0.8s;
+        -o-transition: all 0.8s;
+        transition: all 0.8s;
+    }
+
+    .home-bg h3{
+        /*position: absolute;*/
+        letter-spacing: 5px;
+        font-weight: 600;
+        font-size: 16px;
+        font-weight: 300;
+        z-index: 3;
+        -webkit-transition: all 0.8s;
+        -moz-transition: all 0.8s;
+        -ms-transition: all 0.8s;
+        -o-transition: all 0.8s;
+        transition: all 0.8s;
+    }
+    .home-bg .title{
+        padding: 0 10px;
+    }
+}
+
+/*logo 鐨勬牱寮�*/
+.logo{
+    padding: 0 32px;
+    height: 100%;
+    display: inline-block;
+    /*background-color: rgba(192,192,192,0.5);*/
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+@media (max-width: 990px) {
+    .logo{
+        padding: 0 15px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+}
+
+.logo a{
+    height: 100%;
+    max-width: 100%;
+    display: inline-block;
+}
+.logo img{
+    max-height: 60%;
+}
+
+/*瀵艰埅缁勪欢鐨勬牱寮�*/
+.nav-group{
+    display: inline-block;
+    height: 100%;
+    padding: 0 32px;
+    /*background-color: rgba(192,192,192,0.5);*/
+}
+
+.nav-group li{
+    float: left;
+    margin-right: 32px;
+    line-height: 53px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+@media (max-width: 1120px) {
+    .nav-group li{
+        margin-right: 24px;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+    }
+}
+
+.nav-group li a{
+    color: #ffffff;
+    font-size: 13px;
+    font-weight:600 ;
+}
+.nav-group li a:hover{
+    color: #ffffff;
+    font-size: 13px;
+    font-weight:600 ;
+    text-decoration: none;
+}
+
+.nav-group .download{
+    margin-right: 0;
+}
+
+.nav-group .download a{
+    color: #222;
+    background-color: #fff;
+    display: inline-block;
+    height: 36px;
+    line-height: 35px;
+    padding: 0 20px;
+    border-radius: 20px ;
+    opacity: 0.8;
+
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.nav-group .download a:hover{
+    color: #222;
+    opacity: 1;
+
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+/*娴嬫粦鍗曡彍寮€鍏矯ss*/
+.nav-toggle{
+    width: 48px;
+    height: 100%;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0 16px;
+}
+nav a{
+    color: #fff;
+    line-height: 53px;
+}
+
+/*瑕嗙洊灞忓箷鐨勫鑸〉鏁堟灉*/
+.nav-offscreen{
+    position: fixed;
+    left:100%;
+    width: 100vw;
+    height: 100vh;
+    /*border: 1px solid red;*/
+    background-color: #262930;
+    color: #fff;
+    z-index: 999;
+}
+
+.nav-close{
+    margin-right: 35px;
+}
+
+.nav-box{
+    width: 100vw;
+    height: 416px;
+    margin-top: 117px;
+    /*background-color: rgba(192,192,192,0.5);*/
+}
+.nav-box img{
+    height: 80px;
+    margin-bottom: 24px;
+}
+
+.nav-box ul{
+    margin-bottom: 24px;
+}
+
+.nav-box li{
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+
+.nav-box li a:hover{
+    text-decoration: none;
+    color: #ffffff;
+}
+.nav-box li h5{
+    margin-top: 0px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.loginRegister span{
+    cursor: pointer;
+}
+
+.nav-box p{
+    color: #fefefe;
+    opacity: 0.5;
+    font-size: 12px;
+    margin-top: 24px;
+}
+
+/*椤甸潰涓讳綋鍐呭 container*/
+.main{
+    margin-top: 100vh;
+}
+
+.news{
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 96px;
+    padding-bottom: 96px;
+
+}
+
+aside h2{
+    color: #262930;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+aside a{
+    font-weight: 600;
+    color: #f05b48;
+    font-size: 13px;
+    line-height: 24px;
+}
+
+
+/*闅愯棌鐨勫鑸潯鏍峰紡*/
+nav.scroll{
+    display: none;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    z-index: 999;
+}
+
+nav.scroll a{
+    color: #262930;
+    opacity: 0.5;
+}
+nav.scroll a:hover{
+    color: #262930;
+    opacity: 1;
+}
+
+@media (max-width: 768px){
+    nav.scroll li a{
+        color: #fff;
+    }
+    nav.scroll li a:hover{
+        color: #fff;
+    }
+}
+
+nav.scroll .download a{
+    color: #fff;
+    background-color: #f05b48;
+    display: inline-block;
+    height: 36px;
+    line-height: 35px;
+    padding: 0 20px;
+    border-radius: 20px ;
+    opacity: 0.8;
+
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+nav.scroll .download a:hover{
+    opacity: 1;
+    color: #fff;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+/*婊氬洖椤堕儴*/
+.scrollTop{
+    display: none;
+    /*line-height: 50px;*/
+    margin-bottom: 10px;
+    display: inline-block;
+    position: fixed;
+    cursor: pointer;
+    border: 1px solid #d6d3d3;
+    border-radius: 3px;
+    bottom:10%;
+    right: 5%;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px){
+    .scrollTop{
+        right: 10%;
+    }
+    .scrollTop img{
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/*footer 閮ㄥ垎鐨勬牱寮�*/
+footer{
+    font-weight: 400;
+    color: #fefefe;
+    position: relative;
+    background-color: #f05b48;
+    height: 450px;
+}
+footer img{
+    height: 120px;
+    margin-top: 70px;
+}
+footer .tubiao{
+    margin-top: 50px;
+    margin-bottom: 120px;
+}
+
+footer ul{
+    position: absolute;
+    width: 200px;
+    left: calc(50% - 100px);
+}
+footer li{
+    position: relative;
+}
+
+footer i{
+    opacity: 0.6;
+    color: #ffffff;
+    font-size: 36px !important;
+    cursor: pointer;
+}
+
+footer i:hover+div{
+    display: block;
+}
+
+.min_img{
+    display: none;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    background-image: url(../../img/mobike-wechat-qr-code.jpg);
+    background-size: cover;
+    top:-87px;
+    left: 50px;
+}
+
+@media (max-width: 768px){
+    footer i{
+        font-size: 24px !important;
+    }
+    footer ul{
+        display:block;
+        width: 150px;
+        margin-top: 30px;
+        left: calc(50% - 75px);
+    }
+    .min_img{
+        background-image: url(../../img/mobike-wechat-text.png);
+    }
+}
+
+
+
+footer p{
+    opacity: 0.6;
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<htmlkk lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>商城</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/Public/home/images/yflogo.ico" media="screen" />
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,minimal-ui"/><!-- viewport 后面加上 minimal-ui 在safri 体现效果 -->
+	    <meta name="apple-mobile-web-app-capable" content="yes" />		<!-- iphone safri 全屏 -->
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black" />	<!-- iphone safri 状态栏的背景颜色 -->
+	    <meta name="apple-mobile-web-app-title" content="">		<!-- iphone safri 添加到主屏界面的显示标题 -->
+	    <meta name="format-detection" content="telphone=no, email=no" />	<!-- 禁止数字自动识别为电话号码 -->
+	    <meta name="renderer" content="webkit">				<!-- 启用360浏览器的极速模式(webkit) -->
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 	
+	    <meta name="HandheldFriendly" content="true">		<!-- 是针对一些老的不识别viewport的浏览器，列如黑莓 -->
+	    <meta http-equiv="Cache-Control" content="no-siteapp" />	<!-- 禁止百度转码 -->
+	    <meta name="screen-orientation" content="portrait">	<!-- uc强制竖屏 -->
+	    <meta name="browsermode" content="application">		<!-- UC应用模式 -->
+	    <meta name="full-screen" content="yes">				<!-- UC强制全屏 -->
+	    <meta name="x5-orientation" content="portrait">		<!-- QQ强制竖屏 -->
+	    <meta name="x5-fullscreen" content="true">			<!-- QQ强制全屏 -->
+	    <meta name="x5-page-mode" content="app">			<!-- QQ应用模式 -->
+	    <!--加载阿里flexible库-->
+        <script src="https://ashun.oss-cn-beijing.aliyuncs.com/Public/home/js/flexible.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://ashun.oss-cn-beijing.aliyuncs.com/Public/home/css/base.css" />
+        <link rel="stylesheet" href="https://ashun.oss-cn-beijing.aliyuncs.com/Public/home/css/full_mall.css">
+        <link rel="stylesheet" type="text/css" href="https://ashun.oss-cn-beijing.aliyuncs.com/Public/home/css/style.css">
+        <!-- 引用阿里矢量图标库 -->
+		
+    </head>
+    <body>
+        <!-- 外部容器开始 -->
+        <div id="control" class="container">
+             <header class="full-header">
+                <nav>
+                
+                <div class="sin">
+                <div class="sen"> <img src="https://ashun.oss-cn-beijing.aliyuncs.com/images/lowb.png"> </div>
+          		<input placeholder="搜索" class="san">
+                </div>
+          		
+          </nav>
+
+            </header>
+
+            <!--<main class="full-main">
+            	<ul class="full-ul">
+            		<li v-for="item in oImg"><a :href="oHref(item.SC_ID,item.SC_Level)"><img :src="item.SC_Image" alt="" /></a></li>
+            	</ul>
+            </main>-->
+            <div class="swiper-container">
+
+    <!--<ul class="swiper-container-ul">
+      <li class="swiper-container-ul-li actives">商品</li>-->
+      <!--<li class="swiper-container-ul-li">店铺</li>333-->
+      <!--<div class="soi">
+        <div class="soo">
+          <div class="sos-img"> <img src="https://ashun.oss-cn-beijing.aliyuncs.com/images/lowb.png"> </div>
+          <input placeholder="搜索" class="sos">
+        </div>
+      </div>
+
+    </ul>-->
+    <div class="swiper-wrapper">
+       <!--<volist name="students" id="data">-->
+      <div class="swiper-slide">
+        <div class="content">
+          <div class="left" id="left">
+            <ul>
+              <li v-for="item in items">{{item.name}}</li>
+            </ul>
+          </div>
+          <div class="right" id="right">
+            <ul>
+              <li v-for="item in items">
+                <div class="class-title">{{item.class}}</div>
+                <div v-for="ite in item.list">
+                  <div class="item">
+                    <div class="item-left">
+                      <div class="item-img"> <img :src="ite.src"> </div>
+                    </div>
+                    <div class="item-right">
+                      <div class="item-left">
+                        <div class="item-img"> <img :src="ite.title1"> </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+      <!--</volist>-->
+      <div class="swiper-slide1" style="display:none;">
+        店铺介绍
+      </div>
+    </div>
+    
+  </div>
+            
+             <footer class="nav-footer">
+                     <ul class="tags foot-tags">
+                     <li>
+     				  <a href="/Application/Home/Mobile/Index/index.html"><img src="https://ashun.oss-cn-beijing.aliyuncs.com/images/one.png" /></a>
+    			     </li>
+    			     <li>
+    			      <a href="/Application/Home/Mobile/Goods/full_mall.html"><img src="https://ashun.oss-cn-beijing.aliyuncs.com/images/two.png" /></a>
+    			     </li>
+                     <li>
+                      <a href="/Application/Home/Mobile/Cus/car.html"><img src="https://ashun.oss-cn-beijing.aliyuncs.com/images/three.png" /></a>
+                     </li>
+                     <li>
+                      <a href="/Application/Home/Mobile/Person/personal.html"><img src="https://ashun.oss-cn-beijing.aliyuncs.com/images/four.png" /></a>
+                    </li>
+                     </ul>
+                   </footer>
+        </div>
+        <!-- 外部容器结束  -->
+        <script src="https://ashun.oss-cn-beijing.aliyuncs.com/Public/home/js/jquery-1.10.1.min.js"></script>
+        <!--<script src="https://ashun.oss-cn-beijing.aliyuncs.com/Public/home/js/jquery.min.js"></script>-->
+		<script src="https://ashun.oss-cn-beijing.aliyuncs.com/Public/home/js/vue.min.js"></script>
+		<script type="text/javascript">
+  $(function(){
+    $('.content').css('height',$('.right').height());
+    $('.left ul li').eq(0).addClass('active');
+    $(window).scroll(function(){
+      if($(window).scrollTop() >= 150){
+        $('.swiper-container-ul').css('position','fixed');
+        $('.left').css('position','fixed');
+        $('.right').css('margin-left',$('.left').width());
+      }else {
+        $('.swiper-container-ul').css('position','');
+        $('.left').css('position','');
+        $('.right').css('margin-left','');
+      };
+      //滚动到标杆位置,左侧导航加active
+      $('.right ul li').each(function(){
+        var target = parseInt($(this).offset().top-$(window).scrollTop()-150);
+        var i = $(this).index();
+        if (target<=0) {
+          $('.left ul li').removeClass('active');
+          $('.left ul li').eq(i).addClass('active');
+        }
+      });
+    });
+    $('.left ul li').click(function(){
+      var i = $(this).index('.left ul li');
+      $('body, html').animate({scrollTop:$('.right ul li').eq(i).offset().top-40},500);
+    });
+    $('.swiper-container-ul-li').click(function(){
+      var index = $(this).index();
+      if(index == 0){
+        $('.swiper-slide').eq(0).show();
+        $('.swiper-container-ul-li').eq(0).addClass('actives');
+        $('.swiper-slide').eq(1).hide();
+        $('.swiper-container-ul-li').eq(1).removeClass('actives');
+      }else {
+        $('.swiper-slide').eq(0).hide();
+        $('.swiper-container-ul-li').eq(0).removeClass('actives');
+        $('.swiper-slide').eq(1).show();
+        $('.swiper-container-ul-li').eq(1).addClass('actives');
+      }
+    });
+    // $('.sos').focus(function () {
+    //     $('.swiper-slide1').show();
+    //     $('.swiper-slide').hide();
+    // });
+    // $('.sos').blur(function () {
+    //     $('.swiper-slide1').hide();
+    //     $('.swiper-slide').show();
+    // })
+  });
+  </script>
+  <script>
+  var left = new Vue({
+    el: '#left',
+    data: {
+      items: [
+        { name : '分类1' },
+        { name : '分类2' },
+        { name : '分类3' },
+        { name : '分类4' }
+      ],
+        a:1
+    },
+      created: function () {
+        $.ajax({
+            type:"POST",
+            url:"/index.php/Home/Goods/full_mall",
+            data:{
+
+            },
+            success:function (res) {  //成功返回数据
+                console.log(res);
+            }
+        })
+      },
+  });
+  var right = new Vue({
+    el: '#right',
+    data: {
+      items: [
+        { class : '分类1',list : [ { title1:'http://pleasantly.github.io/pinan/qiqi.jpg',src:'http://pleasantly.github.io/pinan/tearful.jpg' },{ src:'http://pleasantly.github.io/pinan/tearful.jpg',title1:'http://pleasantly.github.io/pinan/qiqi.jpg' }] },
+        { class : '分类2',list : [ { title1:'http://pleasantly.github.io/pinan/qiqi.jpg',src:'http://pleasantly.github.io/pinan/tearful.jpg' },{ src:'http://pleasantly.github.io/pinan/tearful.jpg',title1:'http://pleasantly.github.io/pinan/qiqi.jpg' }] },
+        { class : '分类3',list : [ { title1:'http://pleasantly.github.io/pinan/qiqi.jpg',src:'http://pleasantly.github.io/pinan/tearful.jpg' },{ src:'http://pleasantly.github.io/pinan/tearful.jpg',title1:'http://pleasantly.github.io/pinan/qiqi.jpg' }] },
+        { class : '分类4',list : [ { title1:'http://pleasantly.github.io/pinan/qiqi.jpg',src:'http://pleasantly.github.io/pinan/tearful.jpg' },{ src:'http://pleasantly.github.io/pinan/tearful.jpg',title1:'http://pleasantly.github.io/pinan/qiqi.jpg' }] }
+      ]
+    }
+  });
+  </script>
+		
+        <script src="https://ashun.oss-cn-beijing.aliyuncs.com/Public/home/js/full_mall.js"></script>
+    </body>
+</html>
