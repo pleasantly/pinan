@@ -66,17 +66,17 @@
         <div class="content">
           <div class="left" id="left">
             <ul>
-              <li v-for="item in items">{{item.name}}</li>
+              <li v-for="(item,index) in b">{{item.SC_Name}}</li>
             </ul>
           </div>
           <div class="right" id="right">
             <ul>
-              <li v-for="item in items">
-                <div class="class-title">{{item.class}}</div>
-                <div v-for="ite in item.list">
+              <li v-for="item in ca">
+                <div class="class-title">{{item.SC_Name}}</div>
+                <div v-for="ite in ca.list">
                   <div class="item">
                     <div class="item-left">
-                      <div class="item-img"> <img :src="ite.src"> </div>
+                      <div class="item-img"> <img :src="ite.SC_lmage"> </div>
                     </div>
                     <div class="item-right">
                       <div class="item-left">
@@ -137,6 +137,7 @@
       //滚动到标杆位置,左侧导航加active
       $('.right ul li').each(function(){
         var target = parseInt($(this).offset().top-$(window).scrollTop()-150);
+
         var i = $(this).index();
         if (target<=0) {
           $('.left ul li').removeClass('active');
@@ -182,20 +183,46 @@
         { name : '分类3' },
         { name : '分类4' }
       ],
-        a:1
+        b:[],
+        ca:[{SC_Name:'分类一'},{SC_Name:'分类二'},{SC_Name:'分类三'}],
     },
-      created: function () {
-        $.ajax({
-            type:"POST",
-            url:"/index.php/Home/Goods/full_mall",
-            data:{
+      created: function (e) {
+          that=this;
+          that.pro();
 
-            },
-            success:function (res) {  //成功返回数据
-                console.log(res);
-            }
-        })
+          $('.right ul li').each(function(){
+              var target = parseInt($(this).offset().top-$(window).scrollTop()-150);
+              // console.log(window.scrollY)
+              var i = $(this).index();
+
+          });
+
       },
+
+      watch: {
+          df:function () {
+              console.log(this.b);
+          }
+      },
+
+      methods:{
+        pro:function(){
+            var that=this;
+            // var pro = new Promise(function(resolve,reject){
+                $.ajax({
+                    url:'/index.php/Home/Goods/full_mall',
+                    method:'POST',
+                    data:{
+
+                    },
+                    success:function(res){
+                        console.log(res)
+                        that.b=res;
+                    }
+                })
+        }
+      },
+
   });
   var right = new Vue({
     el: '#right',
@@ -205,11 +232,32 @@
         { class : '分类2',list : [ { title1:'http://pleasantly.github.io/pinan/qiqi.jpg',src:'http://pleasantly.github.io/pinan/tearful.jpg' },{ src:'http://pleasantly.github.io/pinan/tearful.jpg',title1:'http://pleasantly.github.io/pinan/qiqi.jpg' }] },
         { class : '分类3',list : [ { title1:'http://pleasantly.github.io/pinan/qiqi.jpg',src:'http://pleasantly.github.io/pinan/tearful.jpg' },{ src:'http://pleasantly.github.io/pinan/tearful.jpg',title1:'http://pleasantly.github.io/pinan/qiqi.jpg' }] },
         { class : '分类4',list : [ { title1:'http://pleasantly.github.io/pinan/qiqi.jpg',src:'http://pleasantly.github.io/pinan/tearful.jpg' },{ src:'http://pleasantly.github.io/pinan/tearful.jpg',title1:'http://pleasantly.github.io/pinan/qiqi.jpg' }] }
-      ]
-    }
+      ],
+        ca:[],
+    },
+      created: function (e) {
+          that=this;
+          that.add();
+      },
+      methods:{
+          add:function () {
+              var that=this;
+              $.ajax({
+                  url:"/index.php/Home/Goods/full_right",
+                  method:'POST',
+                  data:{
+
+                  },
+                  success:function (res) {  //成功返回数据
+                      console.log(res);
+                      that.ca = res;
+                  },
+              })
+          },
+      },
   });
   </script>
 		
-        <script src="https://ashun.oss-cn-beijing.aliyuncs.com/Public/home/js/full_mall.js"></script>
+        <!--<script src="https://ashun.oss-cn-beijing.aliyuncs.com/Public/home/js/full_mall.js"></script>-->
     </body>
 </html>
