@@ -25,7 +25,33 @@
         <link rel="stylesheet" href="https://ashun.oss-cn-beijing.aliyuncs.com/Public/home/css/full_mall.css">
         <link rel="stylesheet" type="text/css" href="https://ashun.oss-cn-beijing.aliyuncs.com/Public/home/css/style.css">
         <!-- 引用阿里矢量图标库 -->
-		
+
+        <style>
+            .item-left{
+                display: flex;
+                align-content: center;
+                flex-wrap:wrap;
+                width: 100%;
+            }
+          .item-img{
+              display: flex;
+              align-items: center;;
+              justify-content: center;
+              flex-direction:column;
+              flex-wrap:wrap;
+          }
+            .itenmm{
+                margin: 10px 10%;
+                display: flex;
+                align-items: center;;
+                justify-content: center;
+                flex-direction:column;
+            }
+            .itenmm p{
+                margin: 10px 0 0 0;
+            }
+        </style>
+
     </head>
     <body>
         <!-- 外部容器开始 -->
@@ -72,17 +98,17 @@
           <div class="right" id="right">
             <ul>
               <li v-for="item in ca">
-                <div class="class-title">{{item.SC_Name}}</div>
-                <div v-for="ite in ca.list">
+                <div class="class-title"  v-for="(item,index) in bb">{{item.SC_Name}}</div>
+                <div v-for="ite in item.list">
                   <div class="item">
                     <div class="item-left">
-                      <div class="item-img"> <img :src="ite.SC_lmage"> </div>
+                        <div class="itenmm">
+                      <div class="item-img"><img :src="item.SC_Image"></div>
+                            <p>{{item.SC_Name}}</p>
+                        </div>
+
                     </div>
-                    <div class="item-right">
-                      <div class="item-left">
-                        <div class="item-img"> <img :src="ite.title1"> </div>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
               </li>
@@ -184,7 +210,6 @@
         { name : '分类4' }
       ],
         b:[],
-        ca:[{SC_Name:'分类一'},{SC_Name:'分类二'},{SC_Name:'分类三'}],
     },
       created: function (e) {
           that=this;
@@ -234,10 +259,12 @@
         { class : '分类4',list : [ { title1:'http://pleasantly.github.io/pinan/qiqi.jpg',src:'http://pleasantly.github.io/pinan/tearful.jpg' },{ src:'http://pleasantly.github.io/pinan/tearful.jpg',title1:'http://pleasantly.github.io/pinan/qiqi.jpg' }] }
       ],
         ca:[],
+        bb:[],
     },
       created: function (e) {
           that=this;
           that.add();
+          that.poo();
       },
       methods:{
           add:function () {
@@ -254,6 +281,21 @@
                   },
               })
           },
+          poo:function(){
+              var that=this;
+              // var pro = new Promise(function(resolve,reject){
+              $.ajax({
+                  url:'/index.php/Home/Goods/full_mall',
+                  method:'POST',
+                  data:{
+
+                  },
+                  success:function(res){
+                      // console.log(res)
+                      that.bb=res;
+                  }
+              })
+          }
       },
   });
   </script>
