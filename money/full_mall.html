@@ -98,13 +98,14 @@
           <div class="right" id="right">
             <ul>
               <li v-for="item in ca">
-                <div class="class-title"  v-for="(item,index) in bb">{{item.SC_Name}}</div>
+                <!--<div class="class-title"  v-for="(item,index) in cc">{{item.index}}</div>-->
+                  <div class="class-title" >服装</div>
                 <div v-for="ite in item.list">
                   <div class="item">
                     <div class="item-left">
                         <div class="itenmm">
                       <div class="item-img"><img :src="item.SC_Image"></div>
-                            <p>{{item.SC_Name}}</p>
+                            <p>{{item[0][0].SC_Name}}</p>
                         </div>
 
                     </div>
@@ -235,13 +236,13 @@
             var that=this;
             // var pro = new Promise(function(resolve,reject){
                 $.ajax({
-                    url:'/index.php/Home/Goods/full_mall',
+                    url:'http://www.gdyder.com/index.php/Home/Goods/full_mall',
                     method:'POST',
                     data:{
 
                     },
                     success:function(res){
-                        console.log(res)
+                        // console.log(res)
                         that.b=res;
                     }
                 })
@@ -259,7 +260,7 @@
         { class : '分类4',list : [ { title1:'http://pleasantly.github.io/pinan/qiqi.jpg',src:'http://pleasantly.github.io/pinan/tearful.jpg' },{ src:'http://pleasantly.github.io/pinan/tearful.jpg',title1:'http://pleasantly.github.io/pinan/qiqi.jpg' }] }
       ],
         ca:[],
-        bb:[],
+        cc:[],
     },
       created: function (e) {
           that=this;
@@ -270,13 +271,18 @@
           add:function () {
               var that=this;
               $.ajax({
-                  url:"/index.php/Home/Goods/full_right",
+                  url:"http://www.gdyder.com/index.php/Home/Goods/full_right",
                   method:'POST',
                   data:{
 
                   },
                   success:function (res) {  //成功返回数据
                       console.log(res);
+
+                      for (var i=0;res.length>i;i++){
+                          console.log(res[i][0])
+                      }
+
                       that.ca = res;
                   },
               })
@@ -285,14 +291,20 @@
               var that=this;
               // var pro = new Promise(function(resolve,reject){
               $.ajax({
-                  url:'/index.php/Home/Goods/full_mall',
+                  url:'http://www.gdyder.com/index.php/Home/Goods/full_mall',
                   method:'POST',
                   data:{
 
                   },
                   success:function(res){
-                      // console.log(res)
-                      that.bb=res;
+                      // console.log(res[0].SC_Name);
+                      var oo=res;
+                      var pp=[];
+                      for (var i=0;oo.length>i;i++){
+                          pp.push(oo[i].SC_Name);
+                      }
+                      that.cc=pp;
+                      console.log(that.cc)
                   }
               })
           }
